@@ -1,0 +1,130 @@
+{
+  "profile_id": "ANON_001",
+  "codebook_version": "1.0.0",
+  "created": "2026-04-24",
+  "last_updated": "2026-04-24",
+  "encoding": "P1a·B4★ P1b·B3★ P1c·B4★ P1d·C3★ | P2a·B4~ P2b·C3~ P2c·C4~ P2d·B3~ | P3a·B3★ P3b·C4★ P3c·A5★ P3d·B3★ | P4a·B3~ P4b·B2~ P4c·C3~ P4d·B3~ | P5a·A5★ P5b·A5★ P5c·B4★ P5d·A4★ | P6a·B3~ P6b·B3~ P6c·C3~ P6d·B3~ | P7a·A4~ P7b·B3~ P7c·B3~ P7d·B3~ | P8a·E3★ P8b·B3★ P8c·C3~ P8d·B2~ | P9a·B3? P9b·C3? P9c·B3? P9d·B3? | P10a·B2? P10b·B3? P10c·B3? P10d·B3? | P11a·B4★ P11b·B4★ P11c·B3★ P11d·B3★ | P12a·B3~ P12b·B4★ P12c·B3~ P12d·B3~ | P13a·A5★ P13b·A5★ P13c·A4★ P13d·B3★ | P14a·B3~ P14b·B3~ P14c·B3~ P14d·B3~ | P15a·?? P15b·B3~ P15c·?? P15d·B4~ | P16a·B4★ P16b·A4★ P16c·B3★ P16d·B3★ | P17a·C2~ P17b·B2~ P17c·C3~ P17d·B3~ | P18a·B2★ P18b·B2★ P18c·B2? P18d·B4★ | P19a·A4★ P19b·A5★ P19c·B3★ P19d·B4★ | P20a·B4★ P20b·B4★ P20c·B3★ P20d·A5★",
+  "dimensions": {
+    "P1a": {
+      "id": "P1a",
+      "pos": "Centre-left, non-ideological",
+      "tier": "B",
+      "int": 4,
+      "con": "C2",
+      "bsig": ["S001", "S002", "S003"],
+      "trg": ["T002"],
+      "exp": ["X001"],
+      "conf": 3,
+      "upd": "20260424",
+      "oq": []
+    },
+    "P1b": {
+      "id": "P1b",
+      "pos": "Largely egalitarian",
+      "tier": "B",
+      "int": 3,
+      "con": "C2",
+      "bsig": ["S065"],
+      "trg": [],
+      "exp": ["X044"],
+      "conf": 3,
+      "upd": "20260424",
+      "oq": []
+    },
+    "P1c": {
+      "id": "P1c",
+      "pos": "Evidence and ethics balanced",
+      "tier": "B",
+      "int": 4,
+      "con": "C3",
+      "bsig": ["S005", "S078"],
+      "trg": ["T008"],
+      "exp": ["X001"],
+      "conf": 3,
+      "upd": "20260424",
+      "oq": []
+    },
+    "P1d": {
+      "id": "P1d",
+      "pos": "Aware and engaged but not activist",
+      "tier": "C",
+      "int": 3,
+      "con": "C2",
+      "bsig": ["S067"],
+      "trg": ["T032"],
+      "exp": ["X043"],
+      "conf": 3,
+      "upd": "20260424",
+      "oq": []
+    },
+    "P5a": {
+      "id": "P5a",
+      "pos": "Exceptionally broad — data, film, music, astronomy, philosophy, photography",
+      "tier": "A",
+      "int": 5,
+      "con": "C1",
+      "bsig": ["S006", "S007", "S011", "S017", "S020"],
+      "trg": ["T003"],
+      "exp": ["X007", "X009"],
+      "conf": 3,
+      "upd": "20260424",
+      "oq": []
+    },
+    "P9a": {
+      "id": "P9a",
+      "pos": "Unknown",
+      "tier": null,
+      "int": null,
+      "con": null,
+      "bsig": [],
+      "trg": [],
+      "exp": [],
+      "conf": 1,
+      "upd": "20260424",
+      "oq": [
+        "How does this person naturally express care toward people they are close to?",
+        "Do they initiate acts of service or prefer verbal affirmation?"
+      ]
+    },
+    "P13a": {
+      "id": "P13a",
+      "pos": "Dry, observational, witty — situational",
+      "tier": "A",
+      "int": 5,
+      "con": "C1",
+      "bsig": ["S068"],
+      "trg": ["T033"],
+      "exp": ["X011", "X033"],
+      "conf": 3,
+      "upd": "20260424",
+      "oq": []
+    },
+    "P19b": {
+      "id": "P19b",
+      "pos": "Strongly prefers depth over small talk",
+      "tier": "A",
+      "int": 5,
+      "con": "C1",
+      "bsig": ["S036", "S037", "S038"],
+      "trg": ["T013", "T015"],
+      "exp": ["X031"],
+      "conf": 3,
+      "upd": "20260424",
+      "oq": []
+    },
+    "P20d": {
+      "id": "P20d",
+      "pos": "Sees self as constantly evolving — very high growth mindset",
+      "tier": "A",
+      "int": 5,
+      "con": "C1",
+      "bsig": ["S005", "S081", "S096", "S097"],
+      "trg": ["T041", "T050"],
+      "exp": ["X051", "X060"],
+      "conf": 3,
+      "upd": "20260424",
+      "oq": []
+    }
+  },
+  "_note": "This is an anonymised example profile showing a subset of dimension records. A complete profile contains all 80 sub-dimension records."
+}
