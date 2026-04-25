@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Once Dimension Record",
+  "description": "Schema for a single sub-dimension record in a Once compatibility profile",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["id", "conf"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Sub-dimension identifier e.g. P1a, P5c",
+      "pattern": "^P([1-9]|1[0-9]|20)[a-d]$"
+    },
+    "pos": {
+      "type": "string",
+      "description": "Position on the dimension-specific spectrum. Plain language e.g. centre-left, secure, ambivert",
+      "nullable": true
+    },
+    "tier": {
+      "type": "string",
+      "description": "Tier letter A-E on the dimension-specific spectrum",
+      "enum": ["A", "B", "C", "D", "E"],
+      "nullable": true
+    },
+    "int": {
+      "type": "integer",
+      "description": "Intensity level 1-5 within the tier",
+      "minimum": 1,
+      "maximum": 5,
+      "nullable": true
+    },
+    "con": {
+      "type": "string",
+      "description": "Consistency code C1-C5",
+      "enum": ["C1", "C2", "C3", "C4", "C5"],
+      "nullable": true
+    },
+    "bsig": {
+      "type": "array",
+      "description": "Behavioural signal codes from S_signals.md that support this dimension",
+      "items": {
+        "type": "string",
+        "pattern": "^S[0-9]{3}$"
+      }
+    },
+    "trg": {
+      "type": "array",
+      "description": "Trigger codes from T_triggers.md relevant to this dimension",
+      "items": {
+        "type": "string",
+        "pattern": "^T[0-9]{3}$"
+      }
+    },
+    "exp": {
+      "type": "array",
+      "description": "Expression codes from X_expressions.md relevant to this dimension",
+      "items": {
+        "type": "string",
+        "pattern": "^X[0-9]{3}$"
+      }
+    },
+    "conf": {
+      "type": "integer",
+      "description": "Confidence level: 1=unknown(?), 2=inferred(~), 3=strong signal(★)",
+      "enum": [1, 2, 3]
+    },
+    "src": {
+      "type": "array",
+      "description": "Source conversation references that surfaced this signal",
+      "items": {
+        "type": "string"
+      }
+    },
+    "upd": {
+      "type": "string",
+      "description": "Last updated date in YYYYMMDD format",
+      "pattern": "^[0-9]{8}$"
+    },
+    "oq": {
+      "type": "array",
+      "description": "Open questions — what the AI still needs to learn to improve this dimension",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
