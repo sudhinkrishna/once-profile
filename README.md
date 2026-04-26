@@ -8,7 +8,7 @@
 
 The Once Codebook is an open specification for representing who someone is — across **20 psychological parameters**, **80 sub-dimensions**, and **270 behavioural signal codes** — in a structured format that any AI can read, build, and compare.
 
-It was designed for [Once](https://github.com/once-profile) — a weekly matchmaking app that connects one person to one other person every week, based on deep compatibility rather than surface-level preferences. But the codebook itself is open. Any AI, any platform, any developer can use it.
+It was designed for [Once](https://github.com/sudhinkrishna/once-profile) — a weekly matchmaking app that connects one person to one other person every week, based on deep compatibility rather than surface-level preferences. But the codebook itself is open. Any AI, any platform, any developer can use it.
 
 ---
 
@@ -86,28 +86,32 @@ P1a·B4★ P1b·B3★ P1c·B4★ P1d·C3★ | P2a·B4~ P2b·C3~ ...
 
 ## The 20 psychological parameters
 
-| Code | Parameter | Sub-dimensions |
-|------|-----------|----------------|
-| P1 | Values and worldview | Political orientation, gender role views, moral framework, social justice orientation |
-| P2 | Emotional temperament | Expressiveness, emotional stability, empathy level, sensitivity to criticism |
-| P3 | Life goals | Where they want to live, relationship type, personal growth priority, timeline urgency |
-| P4 | Social style | Introvert vs extrovert, social circle size, need for alone time, social spontaneity |
-| P5 | Intellect and curiosity | Curiosity breadth, love of learning, debate style, creative thinking |
-| P6 | Conflict style | Confrontation comfort, resolution approach, forgiveness speed, stubbornness |
-| P7 | Attachment style | Base type, closeness comfort, independence need, trust building speed |
-| P8 | Practical lifestyle | Travel, financial habits, daily rhythm, living style |
-| P9 | Love language | Primary give, primary receive, affection frequency, physical affection comfort |
-| P10 | Anger and mood management | Expression style, trigger sensitivity, cooldown time, mood contagion |
-| P11 | Altruism and kindness | Generosity, stranger kindness, cause orientation, reciprocity expectation |
-| P12 | Dominance vs submissiveness | Decision-making, opinion assertiveness, compromise willingness, leadership |
-| P13 | Sense of humour | Style, frequency, self-deprecation comfort, humour boundaries |
-| P14 | Emotional availability | Openness timing, vulnerability comfort, support style, emotional bandwidth |
-| P15 | Family orientation | Want children, family centrality, parenting style, extended family involvement |
-| P16 | Ambition and career | Career centrality, ambition level, work-life balance, financial ambition |
-| P17 | Spirituality and religion | Religious identity, practice frequency, partner expectation, spiritual worldview |
-| P18 | Physical lifestyle | Fitness orientation, health consciousness, substance use, outdoor vs indoor |
-| P19 | Communication style | Directness, conversation depth, digital communication, listening style |
-| P20 | Openness to change | Adaptability, opinion flexibility, risk tolerance, growth mindset |
+Each parameter has 4 sub-dimensions, full A–E spectrum definitions, and a dealbreaker rating to guide matching weight.
+
+| Code | Parameter | Sub-dimensions | Dealbreaker |
+|------|-----------|----------------|-------------|
+| P1 | Values and worldview | Political orientation, gender role views, moral framework, social justice orientation | High |
+| P2 | Emotional temperament | Expressiveness, emotional stability, empathy level, sensitivity to criticism | Medium |
+| P3 | Life goals | Where they want to live, relationship type, personal growth priority, timeline urgency | High |
+| P4 | Social style | Introvert vs extrovert, social circle size, need for alone time, social spontaneity | Medium |
+| P5 | Intellect and curiosity | Curiosity breadth, love of learning, debate style, creative thinking | Medium |
+| P6 | Conflict style | Confrontation comfort, resolution approach, forgiveness speed, stubbornness | Medium-High |
+| P7 | Attachment style | Base type, closeness comfort, independence need, trust building speed | Medium-High |
+| P8 | Practical lifestyle | Travel, financial habits, daily rhythm, living style | Medium |
+| P9 | Love language | Primary give, primary receive, affection frequency, physical affection comfort | Low-Medium |
+| P10 | Anger and mood management | Expression style, trigger sensitivity, cooldown time, mood contagion | Medium |
+| P11 | Altruism and kindness | Generosity, stranger kindness, cause orientation, reciprocity expectation | Low-Medium |
+| P12 | Dominance vs submissiveness | Decision-making, opinion assertiveness, compromise willingness, leadership | Medium |
+| P13 | Sense of humour | Style, frequency, self-deprecation comfort, humour boundaries | Low-Medium |
+| P14 | Emotional availability | Openness timing, vulnerability comfort, support style, emotional bandwidth | Medium-High |
+| P15 | Family orientation | Want children, family centrality, parenting style, extended family involvement | High |
+| P16 | Ambition and career | Career centrality, ambition level, work-life balance, financial ambition | Medium |
+| P17 | Spirituality and religion | Religious identity, practice frequency, partner expectation, spiritual worldview | High |
+| P18 | Physical lifestyle | Fitness orientation, health consciousness, substance use, outdoor vs indoor | Low-Medium |
+| P19 | Communication style | Directness, conversation depth, digital communication, listening style | Medium |
+| P20 | Openness to change | Adaptability, opinion flexibility, risk tolerance, growth mindset | Low |
+
+> **Note on categorical sub-dimensions:** Most sub-dimensions are ordinal (A is one extreme, E is the other). A few are categorical — P9a and P9b (love language give/receive) and P13a (humour style). For these, compatibility is about category match, not tier similarity. See the individual parameter files for details.
 
 ---
 
@@ -154,25 +158,43 @@ Granularity within a tier. 5 = strongest expression of that tier position.
 
 ## Using this codebook with any AI
 
-Point any AI with web access at this repository and use this prompt:
+There are two ways to load the codebook into an AI, depending on what your AI can do.
+
+### Option A — AI with reliable web access (Claude, Gemini, Perplexity)
+
+Point the AI at this repository and use the build prompt:
 
 ```
-Read the Once Codebook at github.com/once-profile/codebook.
+Read the Once Codebook at github.com/sudhinkrishna/once-profile.
 
-Using the full specification — P parameters, D dimensions, 
-S/T/X codes, C consistency scale, and confidence markers — 
-build my Once profile from our conversation history.
+Using the full specification — P parameters, S/T/X codes, C consistency 
+scale, and confidence markers — build my Once profile from our 
+conversation history.
 
 Rules:
 - Do NOT ask me any questions
 - Observe only from what I have naturally said
-- Assign confidence honestly — use ? when uncertain
-- Output my full encoding string
-- Below it, note which S codes you found strongest 
-  and which dimensions need more signal
+- Assign confidence honestly — ★ strong, ~ inferred, ? unknown
+- For each non-? sub-dimension, identify relevant S, T, and X codes
+- Assign a C consistency code for every non-? dimension
+
+Output:
+1. My full encoding string across all 80 sub-dimensions
+2. The top 5 dimensions with strongest signal — explain why
+3. The top 5 dimensions still unknown — what would resolve them
 
 Begin.
 ```
+
+### Option B — AI that can't browse (free ChatGPT, custom GPTs, local models)
+
+Most AI surfaces can't reliably read a multi-file GitHub repo at runtime. For these, use the single-file bundle:
+
+1. Open **[codebook-bundle.md](./codebook-bundle.md)** — the entire codebook in one file
+2. Paste its full contents into the chat as your first message (or attach it as a file in tools that support uploads — Claude Projects, custom GPTs, Gemini Gems)
+3. Send the build prompt above as your second message
+
+The bundle contains the README, all 20 parameter definitions, all 270 lookup codes, the JSON schemas, and the standard prompts — everything needed to build a profile, in one paste.
 
 ---
 
@@ -181,6 +203,7 @@ Begin.
 ```
 once-profile/
 ├── README.md                    — This file
+├── codebook-bundle.md           — Full spec in one file (for AIs without web access)
 ├── SPEC.md                      — Full encoding specification
 ├── CHANGELOG.md                 — Version history
 ├── CONTRIBUTING.md              — How to propose new codes
@@ -245,4 +268,4 @@ The Once Codebook is released under the [MIT Licence](LICENSE). Use it freely. B
 
 ---
 
-*Built by [Once](https://github.com/once-profile) — one person, one week, one real connection.*
+*Built by [Once](https://github.com/sudhinkrishna/once-profile) — one person, one week, one real connection.*
